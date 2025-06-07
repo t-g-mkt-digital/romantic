@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>07 de Junho — A Luz Que Nunca Se Apaga</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+      font-family: 'Georgia', serif;
+      padding: 2rem;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #f5b0c2;
+      margin-bottom: 0.5rem;
+    }
+    .sub-hora {
+      font-size: 1rem;
+      color: #888;
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      font-size: 2.3rem;
+      margin: 2rem 0 1rem;
+      color: #fbaac2;
+    }
+    p {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+    .photo-placeholder {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .photo-placeholder img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border: 2px solid #f5b0c2;
+      border-radius: 1rem;
+    }
+    .caption {
+      font-size: 1rem;
+      color: #bbb;
+      margin-top: 0.5rem;
+    }
+    .button-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    button {
+      background-color: #f5b0c2;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    button:hover {
+      background-color: #ffa1b5;
+    }
+    .heart-button {
+      animation: pulse 1s infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+    .no-button { position: relative; }
+    .message {
+      margin-top: 2rem;
+      font-style: italic;
+      color: #ccc;
+    }
+    audio {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+    }
+    .hearts {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      animation: float 4s infinite ease-in-out;
+    }
+    @keyframes float {
+      0% { bottom: 0; opacity: 0; }
+      50% { opacity: 1; }
+      100% { bottom: 100%; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>A Luz Que Nunca Se Apaga</h1>
+  <div class="sub-hora" id="hora-atual"></div>
+
+  <h2>🕯️ Memórias que brilham até no escuro</h2>
+  <p>
+    Eu sei que te decepcionei. Hoje era dia de surpresa, e eu me perdi nas minhas falhas. Mas isso aqui é minha forma de tentar, mesmo atrasado, te dizer: me perdoa. Porque cada minuto contigo, .
+  </p>
+  <p>
+    Eu nunca vou esquecer dos nossos filmes de terror juntos, você com raiva pelo fato de eu ser um dorminhoco vagabundo que não consegue ver um filme sem pegar no sono, a gente de xamego. Amo viver isso com você. Amo como você me olha, como cuida de mim, como me defende.
+  </p>
+  <div class="photo-placeholder">
+    <div>
+      <img src="images/Tarci&Gui/20250301_004727.jpg" alt="Indo pra academia de madrugada">
+
+      <div class="caption">O restaurante com a comida mais horrivel de todas, cenoura doce??? mas foi perfeito, depois desse restaurante você me mostrou um pouco do seu mundo com a melhor breja no Violeta</div>
+
+    </div>
+    <div>
+      <img src="images/Tarci&Gui/20250305_224451.jpg" alt="Comida pessica">
+      <div class="caption">Nós dois,11 da noite, indo treinar na forca do odio. Essa é minha foto favorita.</div>
+    </div>
+    <div>
+      <img src="images/Tarci&Gui/20250307_223702.jpg" alt="Melhor comida">
+      <div class="caption">O jantar mais gostoso, o sabor que só existe quando você está comigo.</div>
+    </div>
+  </div>
+
+  <h2>💘 Ainda amo tudo em você</h2>
+  <p>
+    Você nunca foi difícil de amar. Na verdade, é fácil demais se apaixonar por você de novo e de novo. É o seu carinho, sua força, sua risada debochada, sua boca dizendo que não quer carinho enquanto pede com o olhar. Eu amo isso.
+  </p>
+  <p>
+    Amo cada cuidado seu. Amo quando você ajeita minha coberta, quando traz comida sem falar nada, quando olha pro Totoro como se ele fosse parte de nós — porque ele é. Foi você quem trouxe ele pra minha vida, e ele é prova de tudo que construímos. Você me deu amor até em forma de cachorro.
+  </p>
+
+  <h2>🌌 E eu ainda sonho com o nosso depois</h2>
+  <p>
+    Eu nao vejo a hora de estar contigo e com o totoro no nosso cantinho, 
+  </p>
+  <p>
+    Quero viver nosso futuro com tudo que ele tiver. Só não quero que ele exista sem você. Me dá mais uma chance, mesmo que eu tenha que te reconquistar dia após dia.
+  </p>
+
+  <div class="button-container">
+    <button class="heart-button" onclick="mostrarMensagem()">❤️ Vamos Recomeçar</button>
+    <button class="no-button" id="noButton">Recusar</button>
+  </div>
+
+  <div class="message" id="mensagem"></div>
+
+  <div class="hearts">❤️ 💖 💘 💞 💗</div>
+
+  <audio autoplay loop>
+    <source src="images/Tarci&Gui/There Is a Light That Never Goes Out (2011 Remaster).mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function mostrarMensagem() {
+      const msg = document.getElementById("mensagem");
+      msg.innerText = "Prometo minha linda Tarci, que vou te fazer a mulher mmais feliz do mundo, que nada nem ninguém vai ficar no nosso caminho, que eu nunca vou deixar de te amar, que eu vou realizar todos os seus sonhos.";
+    }
+
+    const noButton = document.getElementById("noButton");
+    noButton.addEventListener("mouseenter", () => {
+      const randomX = (Math.random() - 0.5) * 300;
+      const randomY = (Math.random() - 0.5) * 300;
+      noButton.style.position = "absolute";
+      noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    });
+
+    // Atualiza horário atual automaticamente
+    const agora = new Date();
+    const horaFormatada = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById("hora-atual").innerText = `Publicado agora mesmo, às ${horaFormatada} — com verdade, coragem e coração aberto.`;
+  </script>
+</body>
+</html>
